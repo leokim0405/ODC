@@ -1,0 +1,43 @@
+# ========== Unity 빌드시 자동 생성되는 파일/폴더 ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+
+# User-specific
+UserSettings/
+.vscode/
+.idea/
+
+# ========== Unity 자동 생성 프로젝트 파일 ==========
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# ========== 시스템/운영체제 관련 ==========
+.DS_Store
+Thumbs.db
+
+# ========== 빌드 아웃풋 ==========
+*.apk
+*.aab
+*.exe
+*.zip
+
+# ========== Git LFS 안 쓸 경우 큰 파일 주의 ==========
+# *.fbx
+# *.png
+# *.mp3
+
+# ========== Rider나 기타 IDE 사용 시 ==========
+.idea/
+*.sln.iml
