@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\home\\My project\\ODC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{58CA06DB-8263-2818-560A-AE96DBA61AA9}|Assembly-CSharp.csproj|c:\\users\\home\\my project\\odc\\assets\\sprite\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58CA06DB-8263-2818-560A-AE96DBA61AA9}|Assembly-CSharp.csproj|solutionrelative:assets\\sprite\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test.cs",
+              "DocumentMoniker": "C:\\Users\\home\\My project\\ODC\\Assets\\Sprite\\test.cs",
+              "RelativeDocumentMoniker": "Assets\\Sprite\\test.cs",
+              "ToolTip": "C:\\Users\\home\\My project\\ODC\\Assets\\Sprite\\test.cs",
+              "RelativeToolTip": "Assets\\Sprite\\test.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T14:55:25.956Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
