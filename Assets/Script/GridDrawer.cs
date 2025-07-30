@@ -4,43 +4,36 @@ public class GridDrawer : MonoBehaviour
 {
     public int gridSize = 10;
     public float cellSize = 1f;
-    public Material lineMaterial;
+    public GameObject floorPrefab;
+    public Vector3 gridOffset = Vector3.zero; // 🔹 격자 전체 위치 조정
 
     void Start()
     {
-        DrawGrid();
+        PlaceFloorTiles();
     }
 
-    void DrawGrid()
+    void PlaceFloorTiles()
     {
-        for (int i = 0; i <= gridSize; i++)
+        if (floorPrefab == null)
         {
-            // 세로선
-            CreateLine(
-                new Vector3(i * cellSize, 0, 0),
-                new Vector3(i * cellSize, 0, gridSize * cellSize)
-            );
-
-            // 가로선
-            CreateLine(
-                new Vector3(0, 0, i * cellSize),
-                new Vector3(gridSize * cellSize, 0, i * cellSize)
-            );
+            Debug.LogError("Floor FBX Prefab이 할당되지 않았습니다!");
+            return;
         }
-    }
 
-    void CreateLine(Vector3 start, Vector3 end)
-    {
-        GameObject lineObj = new GameObject("GridLine");
-        lineObj.transform.parent = this.transform;
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int z = 0; z < gridSize; z++)
+            {
+                // 각 타일 위치 계산 + 오프셋 적용
+                Vector3 tilePosition = new Vector3(
+                    x * cellSize,
+                    0f,
+                    z * cellSize
+                ) + gridOffset;
 
-        LineRenderer lr = lineObj.AddComponent<LineRenderer>();
-        lr.material = lineMaterial;
-        lr.positionCount = 2;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        lr.startWidth = 0.05f;
-        lr.endWidth = 0.05f;
-        lr.useWorldSpace = true;
+                GameObject tile = Instantiate(floorPrefab, tilePosition, Quaternion.identity, this.transform);
+                tile.transform.localScale = Vector3.one * cellSize;
+            }
+        }
     }
 }
