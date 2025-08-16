@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4238292146474502957}
   - component: {fileID: 4551938547121700373}
   - component: {fileID: 9077713916399817095}
+  - component: {fileID: 3176221545883916912}
+  - component: {fileID: 4432935863180642807}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -159,4 +161,32 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &3176221545883916912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403364378260294557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e9f6dcbf404fa49bf66f6198c234cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4432935863180642807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403364378260294557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82913219b95325a4ea1119a670ca644e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickedOutline: {r: 1, g: 0, b: 0, a: 1}
+  clickedWidth: 0.03
+  forceMultiplier: 2
+  maxVelocity: 200
