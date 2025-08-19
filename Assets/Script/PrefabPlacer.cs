@@ -54,10 +54,53 @@ public class PrefabPlacer : MonoBehaviour
 
     void SetPrefabColor(GameObject obj, Color color)
     {
-        Renderer rend = obj.GetComponent<Renderer>();
-        if (rend != null)
+        var renderers = obj.GetComponentsInChildren<Renderer>(true);
+        var mpb = new MaterialPropertyBlock();
+
+        int[] colorIDs = {
+        Shader.PropertyToID("_BaseColor"),
+        Shader.PropertyToID("_Color"),
+        Shader.PropertyToID("_Tint"),
+        Shader.PropertyToID("_TintColor"),
+        Shader.PropertyToID("_AlbedoColor"),
+        Shader.PropertyToID("_BaseTint"),
+        Shader.PropertyToID("_MainColor")
+    };
+
+        foreach (var r in renderers)
         {
-            rend.material.color = color;
+            if (!r) continue;
+
+            var mats = r.sharedMaterials;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                var m = mats[i];
+                if (!m) continue;
+
+                // 아웃라인 재질은 건너뜀
+                bool isOutline =
+                    m.HasProperty("_Outline") || m.HasProperty("_OutlineWidth") ||
+                    (m.shader && m.shader.name.ToLower().Contains("outline"));
+                if (isOutline) continue;
+
+                r.GetPropertyBlock(mpb, i);
+
+                bool wrote = false;
+                foreach (var pid in colorIDs)
+                {
+                    if (m.HasProperty(pid))
+                    {
+                        mpb.SetColor(pid, color);
+                        wrote = true;
+                        break;
+                    }
+                }
+
+                if (wrote)
+                    r.SetPropertyBlock(mpb, i);
+
+                mpb.Clear();
+            }
         }
     }
 }
